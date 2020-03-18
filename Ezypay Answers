@@ -1,0 +1,89 @@
+Ezpayment:
+1)
+Select 
+     filename,
+     totalrecord,
+     totalamount,
+     paymentrunid,
+From
+     bankfile
+Where
+     filename like 'ASB%' and
+     createddate < '2018-06-13';
+
+2)
+Select
+     paymentrunid,
+     action
+From
+     payment
+Where
+     paymentrunid = '123456' and
+     action = '%PAY%';
+
+3)
+Select distinct
+       billingrunid
+From
+       payment
+Order by
+       billingrunid;
+
+4) skip
+
+Ezybilling:
+
+1) 
+Select
+      billingrundate
+From
+      billingrun
+Order by billingrundate ASC;
+
+2)
+Select
+     invoicetransaction.amount,
+     billingrunid,
+     invoiceid,
+     status,
+     paymentrunid,
+     billingrunnumber
+From
+     invoicetransaction
+Inner join invoice on invoice.amount = invoicetranaaction.amount;
+
+Question 2:
+1) if amount is less than $300 then use Directdebit from bank
+2) if amount is more than $300 then use Visa or Master
+3) if country is Malaysia, can accept Visa or Master (lowest fee) and not AMEX
+4) if country is not Malaysia, can accept Visa, Master or AMEX
+5) if invoice is from Malaysia, can accept Directdebit from bank
+6) if invoice is from Malaysia, can accept credit card Visa or Master
+7) if invoice is not from Malaysia, cannot accept Directdebit from bank
+8) if invoice is not from Malaysia, can only accept Credit Card Visa, Master or AMEX
+
+Question 3:
+
+Dear Mr.Client,
+
+Good day!
+
+We understand that you needed the report urgently to perform financial reconciliation but
+Unfortunately the report took longer time than usual to generate due to performance issue. 
+
+Preliminary investigation showed that the script that was used to generate the report has some issues. 
+When the script runs, it's processing utilised a huge amount of CPU and memory hence causing the table in database table to be locked. 
+
+At this point of time, we have allocated our best resources to fine tune the script so that it will be able
+to generate the report quicker. Additionally we also will run a script to create more indexes as this will further speed up
+the report generation. 
+
+We have also prepared the timeline for this report issue, kindly refer to the below:
+1) 24 March 2020 - we will fine tune the script to completion and test it in our environment
+2) 25 March 2020 - subject to test results, we hope to be able to run the new script in Production environment
+
+Rest assured that we are doing our best and hope to provide to you the script as soon as possible. 
+
+Appreciate your kind understanding. 
+
+Thank you.  
